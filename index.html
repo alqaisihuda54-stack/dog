@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="لوفينغ هومز — إقامة مريحة لكلبك! روتين ذكي، متابعة يومية، ومساحات لعب آمنة في هونغ كونغ." />
+  <title>لوفينغ هومز | الرئيسية</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* أزرار التحكم الثابتة */
+    #themeBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 99999;
+      cursor: pointer;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    #langBtn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 99999;
+      cursor: pointer;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* التكبير والتصغير الموحد */
+    #zoomControls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #zoomControls button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* الوضع الليلي */
+    .dark-mode { background-color: #1a1a1a !important; color: #e0e0e0 !important; }
+    .dark-mode header, .dark-mode footer, .dark-mode .card, .dark-mode .panel { 
+      background-color: #2d2d2d !important; color: #ffffff !important; 
+    }
+    .dark-mode .muted { color: #b0b0b0 !important; }
+    .dark-mode #themeBtn, .dark-mode #langBtn, .dark-mode #zoomControls button {
+      background: #444; border-color: #666; color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  <button id="langBtn" onclick="toggleLang()">EN</button>
+
+  <div id="zoomControls">
+    <button onclick="zoomIn()" aria-label="تكبير">+</button>
+    <button onclick="zoomOut()" aria-label="تصغير">-</button>
+  </div>
+
+  <a class="skip-link lang-ar" href="#content">تخطي إلى المحتوى</a>
+  <a class="skip-link lang-en" href="#content" style="display:none">Skip to content</a>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="logo">🐾</span>
+        <span>
+          <strong class="lang-ar">لوفينغ هومز</strong>
+          <strong class="lang-en" style="display:none">Loving Homes</strong>
+          <span class="tagline lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</span>
+          <span class="tagline lang-en" style="display:none">Dog Hotel • Hong Kong</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button">
+        <span class="sr-only lang-ar">فتح أو إغلاق القائمة</span>
+        <span class="sr-only lang-en" style="display:none">Toggle Menu</span> ☰
+      </button>
+
+      <nav id="site-nav">
+        <a class="nav-link active lang-ar" href="index.html">الرئيسية</a>
+        <a class="nav-link lang-ar" href="aboutus.html">من نحن</a>
+        <a class="nav-link lang-ar" href="services.html">المرافق</a>
+        <a class="nav-link lang-ar" href="packages.html">الحزم</a>
+        <a class="nav-link lang-ar" href="contact.html">تواصل معنا</a>
+        <a class="nav-link lang-ar" href="help.html">المساعدة</a>
+
+        <a class="nav-link active lang-en" href="index.html" style="display:none">Home</a>
+        <a class="nav-link lang-en" href="aboutus.html" style="display:none">About Us</a>
+        <a class="nav-link lang-en" href="services.html" style="display:none">Facilities</a>
+        <a class="nav-link lang-en" href="packages.html" style="display:none">Packages</a>
+        <a class="nav-link lang-en" href="contact.html" style="display:none">Contact Us</a>
+        <a class="nav-link lang-en" href="help.html" style="display:none">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="panel hero-left">
+          <h1 class="lang-ar">مكان ينام فيه كلبك براحة… ويلعب بذكاء</h1>
+          <h1 class="lang-en" style="display:none">A place where your dog sleeps comfortably… and plays smart</h1>
+
+          <p class="lead lang-ar">
+            في لوفينغ هومز لا نعتمد “إقامة وخلاص”. نرتّب يوم كلبك بين راحة ونشاط ومتابعة—حسب عمره وطباعه.
+            غرف مريحة، مساحات لعب آمنة، وخيارات إضافية مثل التوصيل والعناية والتحديثات.
+          </p>
+          <p class="lead lang-en" style="display:none">
+            At Loving Homes, we go beyond simple boarding. We organize your dog's day between rest, activity, and care.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary lang-ar" href="packages.html">شوف الحزم</a>
+            <a class="btn primary lang-en" href="packages.html" style="display:none">View Packages</a>
+            <a class="btn lang-ar" href="contact.html">استفسار سريع</a>
+            <a class="btn lang-en" href="contact.html" style="display:none">Quick Inquiry</a>
+          </div>
+
+          <ul class="badges">
+            <li class="lang-ar">روتين يومي واضح</li>
+            <li class="lang-ar">متابعة واهتمام</li>
+            <li class="lang-ar">لعب داخلي وخارجي</li>
+            <li class="lang-ar">خيارات إضافية حسب الحاجة</li>
+            <li class="lang-en" style="display:none">Clear daily routine</li>
+            <li class="lang-en" style="display:none">Care and attention</li>
+            <li class="lang-en" style="display:none">Indoor & outdoor play</li>
+            <li class="lang-en" style="display:none">Flexible options</li>
+          </ul>
+
+          <div class="callout">
+            <strong class="lang-ar">فكرة اليوم عندنا</strong>
+            <strong class="lang-en" style="display:none">Today's Concept</strong>
+            <p class="muted lang-ar">نوزّع اليوم على فترات قصيرة: نشاط، شرب/أكل، استرخاء، ثم نوم. الهدف: كلب مرتاح بدون توتر أو فوضى.</p>
+            <p class="muted lang-en" style="display:none">We divide the day into balanced cycles to keep your dog calm and happy.</p>
+          </div>
+        </div>
+
+        <div class="panel hero-media">
+          <img src="images/فندق الكلاب.jfif">
+          <p class="muted small lang-ar">عند الإقامات الطويلة أو الاحتياجات الخاصة… نرتّب لك حزمة مخصصة بكل التفاصيل.</p>
+          <p class="muted small lang-en" style="display:none">Custom plans available for long stays and special needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="services-title">
+      <h2 id="services-title" class="lang-ar">لمحة عن الخدمات</h2>
+      <h2 id="services-title-en" class="lang-en" style="display:none">Our Services</h2>
+      <p class="muted lang-ar">أهم الأشياء التي يسأل عنها أصحاب الكلاب دائمًا.</p>
+      <p class="muted lang-en" style="display:none">The main things dog owners always ask about.</p>
+
+      <div class="grid cards">
+        <article class="card">
+          <h3 class="lang-ar">غرف مريحة وتجهيزات يومية</h3>
+          <h3 class="lang-en" style="display:none">Comfortable Rooms & Daily Setup</h3>
+          <p class="lang-ar">بيئة ثابتة تساعد كلبك ينام أسرع ويهدأ أكثر.</p>
+          <p class="lang-en" style="display:none">A stable environment helps your dog sleep faster and stay calm.</p>
+        </article>
+        <article class="card">
+          <h3 class="lang-ar">مساحات لعب خارجية آمنة</h3>
+          <h3 class="lang-en" style="display:none">Safe Outdoor Play Areas</h3>
+          <p class="lang-ar">لعب واستكشاف تحت إشراف—بدون ازدحام أو فوضى.</p>
+          <p class="lang-en" style="display:none">Supervised play and exploration—no crowding or chaos.</p>
+        </article>
+        <article class="card">
+          <h3 class="lang-ar">لعب داخلي عند تغير الطقس</h3>
+          <h3 class="lang-en" style="display:none">Indoor Play for Bad Weather</h3>
+          <p class="lang-ar">حتى لو الجو ما ساعد… الحركة تستمر بشكل آمن.</p>
+          <p class="lang-en" style="display:none">Even if the weather is bad, activity continues safely indoors.</p>
+        </article>
+        <article class="card">
+          <h3 class="lang-ar">عناية وتنظيف حسب الطلب</h3>
+          <h3 class="lang-en" style="display:none">Care & Cleaning on Demand</h3>
+          <p class="lang-ar">خدمة نظافة تساعد على راحة الكلب أثناء الإقامة.</p>
+          <p class="lang-en" style="display:none">Cleaning service ensures your dog's comfort during the stay.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" class="lang-ar">صور من المكان</h2>
+      <h2 id="gallery-title-en" class="lang-en" style="display:none">Gallery</h2>
+      <div class="grid gallery">
+        <div class="card shot"><img src="images/غرف اقامة.jfif" alt="غرف الإقامة"><div class="cap lang-ar">غرف الإقامة</div><div class="cap lang-en" style="display:none">Rooms</div></div>
+        <div class="card shot"><img src="images/مناطق لعب الكلاب.jpg" alt="مناطق اللعب"><div class="cap lang-ar">مناطق اللعب</div><div class="cap lang-en" style="display:none">Play Areas</div></div>
+        <div class="card shot"><img src="images/تنظيف.jfif" alt="عناية وتنظيف"><div class="cap lang-ar">عناية وتنظيف</div><div class="cap lang-en" style="display:none">Care & Cleaning</div></div>
+        <div class="card shot"><img src="images/خدمة توصيل الكلاب.jpg" alt="توصيل"><div class="cap lang-ar">توصيل عند الطلب</div><div class="cap lang-en" style="display:none">Delivery on Demand</div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="packages-title">
+      <h2 id="packages-title" class="lang-ar">الحزم</h2>
+      <h2 id="packages-title-en" class="lang-en" style="display:none">Packages</h2>
+      <div class="grid pricing">
+        <article class="card">
+          <h3 class="lang-ar">المميزة</h3>
+          <h3 class="lang-en" style="display:none">Premium</h3>
+          <p class="lang-ar">للنشيطين جدًا—نشاط أكثر وتحديثات أكثر.</p>
+          <p class="lang-en" style="display:none">For very active dogs—more activity and updates.</p>
+          <a class="btn primary lang-ar" href="packages.html#premium">التفاصيل</a>
+          <a class="btn primary lang-en" href="packages.html#premium" style="display:none">Details</a>
+        </article>
+        <article class="card">
+          <h3 class="lang-ar">الكلاسيكية</h3>
+          <h3 class="lang-en" style="display:none">Classic</h3>
+          <p class="lang-ar">توازن مثالي بين الراحة واللعب مع عناية.</p>
+          <p class="lang-en" style="display:none">Perfect balance between rest and play with care.</p>
+          <a class="btn lang-ar" href="packages.html#classic">التفاصيل</a>
+          <a class="btn lang-en" href="packages.html#classic" style="display:none">Details</a>
+        </article>
+        <article class="card">
+          <h3 class="lang-ar">حزمة اليوم</h3>
+          <h3 class="lang-en" style="display:none">Day Package</h3>
+          <p class="lang-ar">ليوم واحد عندما يكون لديك دوام أو مشاوير.</p>
+          <p class="lang-en" style="display:none">For one day when you have work or errands.</p>
+          <a class="btn lang-ar" href="packages.html#day">التفاصيل</a>
+          <a class="btn lang-en" href="packages.html#day" style="display:none">Details</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="col">
+        <strong class="lang-ar">لوفينغ هومز</strong>
+        <strong class="lang-en" style="display:none">Loving Homes</strong>
+        <div class="muted small lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</div>
+        <div class="muted small lang-en" style="display:none">Dog Hotel • Hong Kong</div>
+      </div>
+      <div class="col">
+        <div class="muted small lang-ar">للحجز والاستفسار: تواصل معنا من صفحة “تواصل معنا”.</div>
+        <div class="muted small lang-en" style="display:none">For bookings and inquiries: Contact us via the Contact page.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* التكبير والتصغير الموحد */
+    let currentZoom = 1;
+    function zoomIn(){
+      currentZoom += 0.1;
+      document.body.style.zoom = currentZoom;
+    }
+    function zoomOut(){
+      if(currentZoom > 0.6) {
+        currentZoom -= 0.1;
+        document.body.style.zoom = currentZoom;
+      }
+    }
+
+    function toggleTheme(){
+      document.body.classList.toggle('dark-mode');
+      const btn = document.getElementById('themeBtn');
+      btn.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+
+    function toggleLang(){
+      const ar=document.querySelectorAll('.lang-ar');
+      const en=document.querySelectorAll('.lang-en');
+      const btn=document.getElementById('langBtn');
+
+      if(ar[0].style.display!=='none'){
+        ar.forEach(e=>e.style.display='none');
+        en.forEach(e=>e.style.display='block');
+        document.documentElement.lang='en';
+        document.documentElement.dir='ltr';
+        btn.innerHTML='AR';
+      } else {
+        ar.forEach(e=>e.style.display='block');
+        en.forEach(e=>e.style.display='none');
+        document.documentElement.lang='ar';
+        document.documentElement.dir='rtl';
+        btn.innerHTML='EN';
+      }
+    }
+  </script>
+</body>
+</html>

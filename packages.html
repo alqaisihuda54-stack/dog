@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="حزم لوفينغ هومز: مميزة، كلاسيكية، وحزمة اليوم مع مقارنة واضحة وخيار تخصيص كامل." />
+  <title>لوفينغ هومز | الحزم</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* زر التبديل الثابت */
+    #themeBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 99999;
+      cursor: pointer;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* تأثيرات الوضع الليلي */
+    .dark-mode { background-color: #1a1a1a !important; color: #e0e0e0 !important; }
+    .dark-mode header, .dark-mode footer, .dark-mode .card, .dark-mode .panel, .dark-mode table { background-color: #2d2d2d !important; color: #ffffff !important; }
+    .dark-mode .muted { color: #b0b0b0 !important; }
+    .dark-mode #themeBtn { background: #444; border-color: #666; }
+
+    /* زر اللغة أعلى اليسار */
+    #langBtn{
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 99999;
+      background:#ffffff;
+      border:2px solid #ccc;
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:50%;
+      font-size:16px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* التكبير والتصغير أسفل الصفحة */
+    #zoomControls{
+      position: fixed;
+      bottom:20px;
+      right:20px;
+      z-index:99999;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    #zoomControls button{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      border:1px solid #ccc;
+      background:#f9f9f9;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* تنسيق الصور في البوكسات */
+    .package-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: block;
+      background-color: #eee; /* لون مؤقت لحين تحميل الصورة */
+    }
+  </style>
+</head>
+
+<body>
+  <button id="langBtn" onclick="toggleLang()">EN</button>
+  <div id="zoomControls">
+    <button onclick="zoomIn()">+</button>
+    <button onclick="zoomOut()">-</button>
+  </div>
+
+  <button id="themeBtn" onclick="toggleTheme()" aria-label="تبديل الوضع الليلي والنهاري">🌙</button>
+
+  <a class="skip-link" href="#content">تخطي إلى المحتوى</a>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="الانتقال إلى الصفحة الرئيسية">
+        <span class="logo" aria-hidden="true">🐾</span>
+        <span>
+          <strong class="lang-ar">لوفينغ هومز</strong>
+          <strong class="lang-en" style="display:none">Loving Homes</strong>
+          <span class="tagline lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</span>
+          <span class="tagline lang-en" style="display:none">Dog Hotel • Hong Kong</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">فتح أو إغلاق القائمة</span> ☰
+      </button>
+      <nav id="site-nav" aria-label="القائمة الرئيسية">
+        <a class="nav-link active lang-ar" href="index.html">الرئيسية</a>
+        <a class="nav-link lang-ar" href="aboutus.html">من نحن</a>
+        <a class="nav-link lang-ar" href="services.html">المرافق</a>
+        <a class="nav-link lang-ar" href="packages.html">الحزم</a>
+        <a class="nav-link lang-ar" href="contact.html">تواصل معنا</a>
+        <a class="nav-link lang-ar" href="help.html">المساعدة</a>
+
+        <a class="nav-link active lang-en" href="index.html" style="display:none">Home</a>
+        <a class="nav-link lang-en" href="aboutus.html" style="display:none">About Us</a>
+        <a class="nav-link lang-en" href="services.html" style="display:none">Facilities</a>
+        <a class="nav-link lang-en" href="packages.html" style="display:none">Packages</a>
+        <a class="nav-link lang-en" href="contact.html" style="display:none">Contact Us</a>
+        <a class="nav-link lang-en" href="help.html" style="display:none">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="panel page-hero lang-ar">
+      <h1>الحزم</h1>
+      <p class="muted" style="margin:0">
+        اختر بسرعة من الحزم الجاهزة… وإذا كان كلبك يحتاج تفاصيل خاصة، نرتّب لك تخصيص كامل.
+      </p>
+    </section>
+
+    <section class="section lang-ar">
+      <h2>مقارنة سريعة</h2>
+      <div class="table-wrap" role="region" aria-label="جدول مقارنة الحزم" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">الميزة</th>
+              <th scope="col">المميزة</th>
+              <th scope="col">الكلاسيكية</th>
+              <th scope="col">حزمة اليوم</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">مشي/نشاط</th>
+              <td>4 مشي + 4 أنشطة</td>
+              <td>3 مشي + 3 أنشطة</td>
+              <td>2 مشي</td>
+            </tr>
+            <tr>
+              <th scope="row">مساحة خاصة</th>
+              <td>نعم</td>
+              <td>اختياري</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">تحديثات يومية</th>
+              <td>مشمولة</td>
+              <td>حسب الطلب</td>
+              <td>حسب الطلب</td>
+            </tr>
+            <tr>
+              <th scope="row">لعب داخلي</th>
+              <td>حسب الحاجة</td>
+              <td>مشمولة</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">عناية/تنظيف</th>
+              <td>اختياري</td>
+              <td>مشمولة</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">مسار رشاقة</th>
+              <td>اختياري</td>
+              <td>اختياري</td>
+              <td>مشمولة</td>
+            </tr>
+            <tr>
+              <th scope="row">حفرة رمل</th>
+              <td>—</td>
+              <td>—</td>
+              <td>مشمولة</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>معلومة مهمة</strong>
+        <p class="muted" style="margin:6px 0 0">
+          أي حزمة يمكن دعمها بخيارات إضافية مثل التوصيل، التحديثات، أو روتين خاص للأدوية/الغذاء عبر “حزمة مخصصة”.
+        </p>
+      </div>
+    </section>
+
+    <section class="section lang-ar">
+      <h2>تفاصيل الحزم</h2>
+      <div class="grid pricing">
+        <article id="premium" class="card">
+          <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80" alt="المميزة" class="package-img">
+          <h3>المميزة</h3>
+          <p class="muted">للأكثر نشاطًا — برنامج ممتلئ وتحديثات تطمّنك يوميًا.</p>
+          <ul class="checklist">
+            <li>4 مرات مشي يوميًا + 4 أنشطة</li>
+            <li>مساحة عشب خاصة</li>
+            <li>تحديثات وصور يومية</li>
+            <li>مكافآت حسب الاتفاق</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=المميزة">اطلب المميزة</a>
+            <a class="btn" href="help.html">هل تناسب كلبك؟</a>
+          </div>
+        </article>
+
+        <article id="classic" class="card">
+          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=500&q=80" alt="الكلاسيكية" class="package-img">
+          <h3>الكلاسيكية</h3>
+          <p class="muted">الخيار المتوازن — لعب وراحة وعناية بدون مبالغة.</p>
+          <ul class="checklist">
+            <li>3 مرات مشي يوميًا + 3 أنشطة</li>
+            <li>لعب داخلي</li>
+            <li>منطقة استرخاء</li>
+            <li>عناية وتنظيف</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=الكلاسيكية">اطلب الكلاسيكية</a>
+            <a class="btn" href="help.html">نصائح الاختيار</a>
+          </div>
+        </article>
+
+        <article id="day" class="card">
+          <img src="https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?auto=format&fit=crop&w=500&q=80" alt="حزمة اليوم" class="package-img">
+          <h3>حزمة اليوم</h3>
+          <p class="muted">ليوم واحد — حل سريع عندما يكون لديك مشاغل.</p>
+          <ul class="checklist">
+            <li>مشي مرتين</li>
+            <li>لعب خارجي</li>
+            <li>مسار رشاقة</li>
+            <li>حفرة رمل للعب</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=اليوم">اطلب حزمة اليوم</a>
+            <a class="btn" href="services.html">تفاصيل المرافق</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>الحزمة المخصصة</strong>
+        <p class="muted" style="margin:6px 0 0">
+           للإقامات الطويلة أو الحالات الخاصة (حساسية، أدوية، غذاء خاص، روتين محدد).
+          اختر ما تريد: نشاط أقل/أكثر، توصيل، تحديثات، أو عناية إضافية.
+        </p>
+        <div style="margin-top:12px">
+          <a class="btn primary" href="contact.html?package=مخصصة">اطلب تخصيص</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel page-hero lang-en" style="display:none">
+      <h1>Packages</h1>
+      <p class="muted" style="margin:0">
+        Quickly choose from ready packages… and if your dog needs special details, we arrange full customization.
+      </p>
+    </section>
+
+    <section class="section lang-en" style="display:none">
+      <h2>Quick Comparison</h2>
+      <div class="table-wrap" role="region" aria-label="Packages Comparison Table" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Premium</th>
+              <th scope="col">Classic</th>
+              <th scope="col">Day Package</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Walk/Activity</th>
+              <td>4 walks + 4 activities</td>
+              <td>3 walks + 3 activities</td>
+              <td>2 walks</td>
+            </tr>
+            <tr>
+              <th scope="row">Private Space</th>
+              <td>Yes</td>
+              <td>Optional</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">Daily Updates</th>
+              <td>Included</td>
+              <td>On demand</td>
+              <td>On demand</td>
+            </tr>
+            <tr>
+              <th scope="row">Indoor Play</th>
+              <td>As needed</td>
+              <td>Included</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">Care/Cleaning</th>
+              <td>Optional</td>
+              <td>Included</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">Fitness Track</th>
+              <td>Optional</td>
+              <td>Optional</td>
+              <td>Included</td>
+            </tr>
+            <tr>
+              <th scope="row">Sand Pit</th>
+              <td>—</td>
+              <td>—</td>
+              <td>Included</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section lang-en" style="display:none">
+      <h2>Package Details</h2>
+      <div class="grid pricing">
+        <article id="premium-en" class="card">
+          <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80" alt="Premium" class="package-img">
+          <h3>Premium</h3>
+          <p class="muted">For the most active dogs — full program with daily updates.</p>
+          <ul class="checklist">
+            <li>4 walks daily + 4 activities</li>
+            <li>Private grass space</li>
+            <li>Daily updates & photos</li>
+            <li>Rewards as agreed</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=Premium">Order Premium</a>
+            <a class="btn" href="help.html">Fits your dog?</a>
+          </div>
+        </article>
+
+        <article id="classic-en" class="card">
+          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=500&q=80" alt="Classic" class="package-img">
+          <h3>Classic</h3>
+          <p class="muted">Balanced option — play, rest, and care without exaggeration.</p>
+          <ul class="checklist">
+            <li>3 walks daily + 3 activities</li>
+            <li>Indoor play</li>
+            <li>Relaxation area</li>
+            <li>Care & cleaning</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=Classic">Order Classic</a>
+            <a class="btn" href="help.html">Selection tips</a>
+          </div>
+        </article>
+
+        <article id="day-en" class="card">
+          <img src="https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?auto=format&fit=crop&w=500&q=80" alt="Day Package" class="package-img">
+          <h3>Day Package</h3>
+          <p class="muted">One day — quick solution for busy owners.</p>
+          <ul class="checklist">
+            <li>2 walks</li>
+            <li>Outdoor play</li>
+            <li>Fitness track</li>
+            <li>Sand pit for play</li>
+          </ul>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="contact.html?package=Day">Order Day Package</a>
+            <a class="btn" href="services.html">Service Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <div class="col lang-ar"><strong>لوفينغ هومز</strong><div class="muted small">ضيافة كلاب بمعايير فندقية • هونغ كونغ</div></div>
+      <div class="col lang-en" style="display:none"><strong>Loving Homes</strong><div class="muted small">Hotel-standard dog care • Hong Kong</div></div>
+      <div class="col lang-ar">
+        <div class="muted small">لو محتار… صفحة المساعدة تختصر عليك القرار.</div>
+      </div>
+      <div class="col lang-en" style="display:none">
+        <div class="muted small">Need help… the Help page guides your choice.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeBtn');
+      body.classList.toggle('dark-mode');
+      btn.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('#site-nav');
+    if(toggle && nav){
+      toggle.addEventListener('click', ()=>{
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', ()=>{
+          if(nav.classList.contains('open')){
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded','false');
+          }
+        });
+      });
+    }
+
+    let currentZoom = 1;
+    function zoomIn(){
+      currentZoom += 0.1;
+      document.body.style.zoom = currentZoom;
+    }
+    function zoomOut(){
+      if (currentZoom > 0.5) {
+        currentZoom -= 0.1;
+        document.body.style.zoom = currentZoom;
+      }
+    }
+
+    function toggleLang(){
+      const arElems = document.querySelectorAll('.lang-ar');
+      const enElems = document.querySelectorAll('.lang-en');
+      arElems.forEach(el=>el.style.display = el.style.display === 'none' ? '' : 'none');
+      enElems.forEach(el=>el.style.display = el.style.display === 'none' ? '' : 'none');
+      const langBtn = document.getElementById('langBtn');
+      langBtn.innerText = langBtn.innerText === 'EN' ? 'AR' : 'EN';
+    }
+  </script>
+</body>
+</html>

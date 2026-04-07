@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="مساعدة سريعة لاختيار الحزمة المناسبة حسب طاقة الكلب ومدة الإقامة والخدمات الإضافية." />
+  <title>لوفينغ هومز | المساعدة</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* أزرار التحكم الثابتة */
+    #themeBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+      background: #ffffff;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #langBtn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      background: #ffffff;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #zoomControls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #zoomControls button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* تأثيرات الوضع الليلي */
+    body.dark-mode { background-color: #1a1a1a !important; color: #e0e0e0 !important; }
+    body.dark-mode header, body.dark-mode footer, body.dark-mode .card, body.dark-mode .panel, 
+    body.dark-mode .acc-panel, body.dark-mode .acc-btn { 
+      background-color: #2d2d2d !important; 
+      color: #ffffff !important; 
+      border-color: #444 !important;
+    }
+    body.dark-mode .muted { color: #b0b0b0 !important; }
+    body.dark-mode #themeBtn, body.dark-mode #langBtn { background: #444; border-color: #666; color: #fff; }
+  </style>
+</head>
+
+<body>
+  <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  <button id="langBtn" onclick="toggleLang()">EN</button>
+
+  <a class="skip-link" href="#content">تخطي إلى المحتوى</a>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="logo">🐾</span>
+        <span class="brand-text">
+          <strong class="lang-ar">لوفينغ هومز</strong>
+          <strong class="lang-en" style="display:none">Loving Homes</strong>
+          <span class="tagline lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</span>
+          <span class="tagline lang-en" style="display:none">Dog Hotel • Hong Kong</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">فتح أو إغلاق القائمة</span> ☰
+      </button>
+
+      <nav id="site-nav">
+        <a class="nav-link lang-ar" href="index.html">الرئيسية</a>
+        <a class="nav-link lang-ar" href="aboutus.html">من نحن</a>
+        <a class="nav-link lang-ar" href="services.html">المرافق</a>
+        <a class="nav-link lang-ar" href="packages.html">الحزم</a>
+        <a class="nav-link lang-ar" href="contact.html">تواصل معنا</a>
+        <a class="nav-link active lang-ar" href="help.html">المساعدة</a>
+        <a class="nav-link lang-en" href="index.html" style="display:none">Home</a>
+        <a class="nav-link lang-en" href="aboutus.html" style="display:none">About Us</a>
+        <a class="nav-link lang-en" href="services.html" style="display:none">Facilities</a>
+        <a class="nav-link lang-en" href="packages.html" style="display:none">Packages</a>
+        <a class="nav-link lang-en" href="contact.html" style="display:none">Contact Us</a>
+        <a class="nav-link active lang-en" href="help.html" style="display:none">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="panel page-hero">
+      <h1 class="lang-ar">المساعدة</h1>
+      <h1 class="lang-en" style="display:none">Help Center</h1>
+      <p class="muted lang-ar" style="margin:0">إذا ما تحب تحتار… هذه الصفحة تعطيك القرار خلال دقيقة.</p>
+      <p class="muted lang-en" style="display:none; margin:0">If you don't want to be confused… this page gives you the decision in a minute.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="lang-ar">اختيار الحزمة حسب طاقة كلبك</h2>
+      <h2 class="lang-en" style="display:none">Choose the package based on your dog's energy</h2>
+
+      <div class="grid pricing">
+        <article class="card">
+          <h3 class="lang-ar">المميزة مناسبة إذا</h3>
+          <h3 class="lang-en" style="display:none">Premium is suitable if</h3>
+          <p class="lang-ar">كلبك يحب الحركة وتريد تحديثات يومية تطمّنك.</p>
+          <p class="lang-en" style="display:none">Your dog loves activity and you want daily updates.</p>
+          <ul class="checklist">
+            <li class="lang-ar">أنشطة أكثر طوال اليوم</li><li class="lang-en" style="display:none">More activities all day</li>
+            <li class="lang-ar">مساحة خاصة للراحة</li><li class="lang-en" style="display:none">Private rest space</li>
+            <li class="lang-ar">صور/تحديثات يومية</li><li class="lang-en" style="display:none">Daily photos/updates</li>
+          </ul>
+          <a class="btn primary lang-ar" href="packages.html#premium" style="margin-top:12px">اذهب للمميزة</a>
+          <a class="btn primary lang-en" href="packages.html#premium" style="display:none; margin-top:12px">Go to Premium</a>
+        </article>
+
+        <article class="card">
+          <h3 class="lang-ar">الكلاسيكية مناسبة إذا</h3>
+          <h3 class="lang-en" style="display:none">Classic is suitable if</h3>
+          <p class="lang-ar">تريد توازن بين اللعب والهدوء مع عناية.</p>
+          <p class="lang-en" style="display:none">You want a balance between play and quiet with care.</p>
+          <ul class="checklist">
+            <li class="lang-ar">روتين متوازن</li><li class="lang-en" style="display:none">Balanced routine</li>
+            <li class="lang-ar">لعب داخلي عند الحاجة</li><li class="lang-en" style="display:none">Indoor play as needed</li>
+            <li class="lang-ar">تنظيف وعناية</li><li class="lang-en" style="display:none">Cleaning and care</li>
+          </ul>
+          <a class="btn lang-ar" href="packages.html#classic" style="margin-top:12px">اذهب للكلاسيكية</a>
+          <a class="btn lang-en" href="packages.html#classic" style="display:none; margin-top:12px">Go to Classic</a>
+        </article>
+
+        <article class="card">
+          <h3 class="lang-ar">حزمة اليوم مناسبة إذا</h3>
+          <h3 class="lang-en" style="display:none">Day Care is suitable if</h3>
+          <p class="lang-ar">تحتاج رعاية ليوم واحد وقت الدوام أو المشاوير.</p>
+          <p class="lang-en" style="display:none">You need care for one day during work or errands.</p>
+          <ul class="checklist">
+            <li class="lang-ar">تمشية + لعب</li><li class="lang-en" style="display:none">Walking + Play</li>
+            <li class="lang-ar">نشاط خفيف ومرتب</li><li class="lang-en" style="display:none">Light and organized activity</li>
+            <li class="lang-ar">استلام/تسليم سريع</li><li class="lang-en" style="display:none">Quick pick-up/drop-off</li>
+          </ul>
+          <a class="btn lang-ar" href="packages.html#day" style="margin-top:12px">اذهب لحزمة اليوم</a>
+          <a class="btn lang-en" href="packages.html#day" style="display:none; margin-top:12px">Go to Day Care</a>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong class="lang-ar">قاعدة بسيطة</strong>
+        <strong class="lang-en" style="display:none">Simple Rule</strong>
+        <p class="muted lang-ar" style="margin:6px 0 0">كلب هادئ أو كبير؟ غالبًا الكلاسيكية أفضل. كلب طاقته عالية؟ المميزة تريّحك. يوم واحد فقط؟ حزمة اليوم هي الأسرع.</p>
+        <p class="muted lang-en" style="display:none; margin:6px 0 0">Senior or quiet dog? Classic is best. High energy? Premium is better. One day only? Day Care is the fastest.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="lang-ar">متى تختار “حزمة مخصصة”؟</h2>
+      <h2 class="lang-en" style="display:none">When to choose a "Custom Package"?</h2>
+      <div class="card">
+        <p class="muted lang-ar" style="margin:0">إذا عندك إقامة طويلة، أو كلبك يحتاج أدوية/غذاء خاص/حساسية… التخصيص هو الخيار الأريح.</p>
+        <p class="muted lang-en" style="display:none; margin:0">If you have a long stay, or your dog needs meds/special food... Custom is the best choice.</p>
+        <ul class="checklist">
+          <li class="lang-ar">حدد مدة الإقامة</li><li class="lang-en" style="display:none">Define stay duration</li>
+          <li class="lang-ar">اكتب عمر الكلب ونشاطه</li><li class="lang-en" style="display:none">Mention age and activity</li>
+          <li class="lang-ar">اذكر الحساسية/الأدوية</li><li class="lang-en" style="display:none">Mention allergies/meds</li>
+          <li class="lang-ar">حدد هل تحتاج توصيل</li><li class="lang-en" style="display:none">Specify if you need delivery</li>
+        </ul>
+        <a class="btn primary lang-ar" href="contact.html?package=مخصصة">اطلب حزمة مخصصة</a>
+        <a class="btn primary lang-en" href="contact.html?package=Custom" style="display:none">Request Custom Package</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="lang-ar">أسئلة شائعة</h2>
+      <h2 class="lang-en" style="display:none">Frequently Asked Questions</h2>
+
+      <div class="accordion" data-accordion>
+        <div>
+          <button class="acc-btn" type="button" aria-expanded="false">
+            <span class="lang-ar">ماذا أحضر عند التسليم؟</span>
+            <span class="lang-en" style="display:none">What to bring?</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="acc-panel" hidden>
+            <p class="muted lang-ar" style="margin:0">الأفضل إحضار الطعام المعتاد، الأدوية، ولعبة مألوفة.</p>
+            <p class="muted lang-en" style="display:none; margin:0">Better to bring usual food, meds, and a familiar toy.</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="acc-btn" type="button" aria-expanded="false">
+            <span class="lang-ar">هل توجد متابعة خلال الإقامة؟</span>
+            <span class="lang-en" style="display:none">Is there follow-up during the stay?</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="acc-panel" hidden>
+            <p class="muted lang-ar" style="margin:0">نعم، نتابع الروتين اليومي ونوفر تحديثات حسب الحزمة.</p>
+            <p class="muted lang-en" style="display:none; margin:0">Yes, we follow the daily routine and provide updates.</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="acc-btn" type="button" aria-expanded="false">
+            <span class="lang-ar">هل التوصيل متاح؟</span>
+            <span class="lang-en" style="display:none">Is delivery available?</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="acc-panel" hidden>
+            <p class="muted lang-ar" style="margin:0">متاح حسب المنطقة والوقت. اذكر التفاصيل وسنرتّب كل شيء.</p>
+            <p class="muted lang-en" style="display:none; margin:0">Available by area/time. Mention details to arrange everything.</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="acc-btn" type="button" aria-expanded="false">
+            <span class="lang-ar">ماذا عن خيار البيطري 24/7؟</span>
+            <span class="lang-en" style="display:none">What about 24/7 Vet?</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="acc-panel" hidden>
+            <p class="muted lang-ar" style="margin:0">خيار إضافي للحالات الخاصة أو لمن يريد أعلى مستوى أمان.</p>
+            <p class="muted lang-en" style="display:none; margin:0">An extra option for special cases or maximum peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <div class="col lang-ar"><strong>لوفينغ هومز</strong><div class="muted small">ضيافة كلاب بمعايير فندقية • هونغ كونغ</div></div>
+      <div class="col lang-en" style="display:none"><strong>Loving Homes</strong><div class="muted small">Dog Hotel • Hong Kong</div></div>
+      <div class="col lang-ar"><div class="muted small">إذا لديك حالة خاصة، الأفضل إرسال التفاصيل في صفحة التواصل.</div></div>
+      <div class="col lang-en" style="display:none"><div class="muted small">For special cases, please send details via the Contact page.</div></div>
+    </div>
+  </footer>
+
+  <div id="zoomControls">
+    <button onclick="zoomIn()">➕</button>
+    <button onclick="zoomOut()">➖</button>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const dark = document.body.classList.toggle('dark-mode');
+      document.getElementById('themeBtn').innerHTML = dark ? '☀️' : '🌙';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+    if(localStorage.getItem('theme')==='dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('themeBtn').innerHTML='☀️';
+    }
+
+    function toggleLang() {
+      const ar = document.querySelectorAll('.lang-ar');
+      const en = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+      const isAr = ar[0].style.display !== 'none';
+      ar.forEach(e => e.style.display = isAr ? 'none' : 'block');
+      en.forEach(e => e.style.display = isAr ? 'block' : 'none');
+      document.documentElement.lang = isAr ? 'en' : 'ar';
+      document.documentElement.dir = isAr ? 'ltr' : 'rtl';
+      btn.innerHTML = isAr ? 'AR' : 'EN';
+    }
+
+    let zoomLevel = 1;
+    function zoomIn() { zoomLevel += 0.1; applyZoom(); }
+    function zoomOut() { zoomLevel -= 0.1; applyZoom(); }
+    function applyZoom() { 
+      document.body.style.transform = `scale(${zoomLevel})`; 
+      document.body.style.transformOrigin = document.documentElement.dir === 'rtl' ? 'top right' : 'top left';
+    }
+
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('#site-nav');
+    if(toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const o = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(o));
+      });
+    }
+
+    document.querySelectorAll('[data-accordion] .acc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if(panel) panel.hidden = expanded;
+      });
+    });
+  </script>
+</body>
+</html>

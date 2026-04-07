@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="تعرف على لوفينغ هومز، قصتنا ورؤيتنا في تقديم أفضل رعاية فندقية للكلاب في هونغ كونغ." />
+<title>لوفينغ هومز | من نحن</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* الوضع الليلي */
+#themeBtn {
+position: fixed;
+top: 15px;
+right: 15px;
+z-index: 1000;
+background: #ffffff;
+border: 2px solid #ccc;
+cursor: pointer;
+padding: 8px 12px;
+border-radius: 50%;
+font-size: 1.2rem;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
+body.dark-mode .panel { background-color: #1e1e1e !important; border-color: #333 !important; color: #fff !important; }
+body.dark-mode .muted { color: #aaa !important; }
+body.dark-mode #themeBtn { background: #333; border-color: #555; color: #fff; }
+
+/* زر اللغة أعلى اليسار */
+#langBtn {
+position: fixed;
+top: 15px;
+left: 15px;
+z-index: 1000;
+background: #ffffff;
+border: 2px solid #ccc;
+cursor: pointer;
+padding: 8px 12px;
+border-radius: 50%;
+font-size: 1.1rem;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* التكبير والتصغير أسفل الصفحة */
+#zoomControls {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 9999;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+#zoomControls button {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 1px solid #ccc;
+background: #f9f9f9;
+font-size: 18px;
+cursor: pointer;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* الفيديو */
+.video-section {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+border-radius: 12px;
+margin: 30px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+border: 1px solid #ddd;
+background-color: #000;
+}
+.video-section iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: 0;
+}
+.video-btn-overlay {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 10;
+display: inline-block;
+padding: 15px 30px;
+background: linear-gradient(135deg, #ff7e79, #9c7cf4);
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2rem;
+border-radius: 50px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+cursor: pointer;
+transition: transform 0.2s;
+}
+.video-btn-overlay:hover { transform: translate(-50%, -50%) scale(1.05); }
+body.dark-mode .video-section { border-color: #444; }
+
+/* ضروري لخاصية scale عشان ما تطلع العناصر برا */
+body {
+    transition: transform 0.2s ease;
+}
+</style>
+</head>
+
+<body>
+
+<button id="themeBtn" onclick="toggleTheme()">🌙</button>
+<button id="langBtn" onclick="toggleLang()">EN</button>
+
+<a class="skip-link" href="#content">تخطي إلى المحتوى</a>
+
+<header>
+<div class="container header-inner">
+<a class="brand" href="index.html">
+<span class="logo">🐾</span>
+<span class="brand-text">
+<strong class="lang-ar">لوفينغ هومز</strong>
+<strong class="lang-en" style="display:none">Loving Homes</strong>
+<span class="tagline lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</span>
+<span class="tagline lang-en" style="display:none">Dog Hotel • Hong Kong</span>
+</span>
+</a>
+
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+<span class="sr-only">فتح أو إغلاق القائمة</span> ☰
+</button>
+
+<nav id="site-nav">
+<a class="nav-link active lang-ar" href="index.html">الرئيسية</a>
+<a class="nav-link lang-ar" href="aboutus.html">من نحن</a>
+<a class="nav-link lang-ar" href="services.html">المرافق</a>
+<a class="nav-link lang-ar" href="packages.html">الحزم</a>
+<a class="nav-link lang-ar" href="contact.html">تواصل معنا</a>
+<a class="nav-link lang-ar" href="help.html">المساعدة</a>
+
+<a class="nav-link active lang-en" href="index.html" style="display:none">Home</a>
+<a class="nav-link lang-en" href="aboutus.html" style="display:none">About Us</a>
+<a class="nav-link lang-en" href="services.html" style="display:none">Facilities</a>
+<a class="nav-link lang-en" href="packages.html" style="display:none">Packages</a>
+<a class="nav-link lang-en" href="contact.html" style="display:none">Contact Us</a>
+<a class="nav-link lang-en" href="help.html" style="display:none">Help</a>
+</nav>
+</div>
+</header>
+
+<main id="content" class="container">
+<section class="panel page-hero lang-ar">
+<h1>من نحن</h1>
+<p style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px;">
+هنا يمكنك التعرف على رؤيتنا وأهدافنا وكيف نسعى لتقديم أفضل تجربة وخدمات مميزة لعملائنا. 
+نحن في <strong>لوفينغ هومز</strong> لسنا مجرد فندق للكلاب، بل نحن فريق متخصص يجمع بين الشغف والخبرة لتقديم بيئة آمنة ومحفزة في هونغ كونغ. 
+رؤيتنا تتلخص في تحويل فترة إقامة كلبك إلى رحلة ممتعة مليئة بالنشاط والراحة، مع ضمان أدق معايير العناية الفندقية التي تمنحك راحة البال التامة.
+</p>
+</section>
+
+<section class="section lang-ar">
+<div class="video-section">
+<iframe src="https://www.youtube.com/embed/1lMP11itP_0" title="فيديو تعريفي لوفينغ هومز" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<a href="https://youtu.be/1lMP11itP_0" target="_blank" class="video-btn-overlay">مشاهدة على يوتيوب</a>
+</div>
+</section>
+
+<section class="panel page-hero lang-en" style="display:none">
+<h1>About Us</h1>
+<p style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px;">
+Learn about our vision and goals at <strong>Loving Homes</strong>. We are not just a dog hotel — we are a dedicated team combining passion and expertise to provide a safe and stimulating environment in Hong Kong. Our vision is to make your dog's stay a fun and comfortable journey while ensuring the highest standards of care.
+</p>
+</section>
+
+<section class="section lang-en" style="display:none">
+<div class="video-section">
+<iframe src="https://www.youtube.com/embed/1lMP11itP_0" title="Loving Homes Intro Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<a href="https://youtu.be/1lMP11itP_0" target="_blank" class="video-btn-overlay">Watch on YouTube</a>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+<div class="col lang-ar">
+<strong>لوفينغ هومز</strong>
+<div class="muted small">ضيافة كلاب بمعايير فندقية • هونغ كونغ</div>
+</div>
+<div class="col lang-en" style="display:none">
+<strong>Loving Homes</strong>
+<div class="muted small">Hotel-standard dog care • Hong Kong</div>
+</div>
+<div class="col lang-ar">
+<div class="muted small">تعرّف على قصتنا ورؤيتنا والقيم التي نعمل من خلالها لتقديم أفضل رعاية ممكنة.</div>
+</div>
+<div class="col lang-en" style="display:none">
+<div class="muted small">Learn about our story, vision, and values to provide the best care possible.</div>
+</div>
+</div>
+</footer>
+
+<div id="zoomControls">
+<button onclick="zoomIn()">➕</button>
+<button onclick="zoomOut()">➖</button>
+</div>
+
+<script>
+function toggleTheme(){
+const body=document.body;
+const btn=document.getElementById('themeBtn');
+const dark = body.classList.toggle('dark-mode');
+btn.innerHTML = dark ? '☀️' : '🌙';
+localStorage.setItem('theme', dark ? 'dark':'light');
+}
+if(localStorage.getItem('theme')==='dark'){
+document.body.classList.add('dark-mode');
+document.getElementById('themeBtn').innerHTML='☀️';
+}
+
+/* اللغة */
+function toggleLang(){
+const ar=document.querySelectorAll('.lang-ar');
+const en=document.querySelectorAll('.lang-en');
+const btn=document.getElementById('langBtn');
+if(ar[0].style.display !=='none'){
+ar.forEach(e=>e.style.display='none');
+en.forEach(e=>e.style.display='block');
+document.documentElement.lang='en';
+document.documentElement.dir='ltr';
+btn.innerHTML='AR';
+}else{
+ar.forEach(e=>e.style.display='block');
+en.forEach(e=>e.style.display='none');
+document.documentElement.lang='ar';
+document.documentElement.dir='rtl';
+btn.innerHTML='EN';
+}
+}
+
+/* التكبير والتصغير (نفس طلبك من الكود السابق) */
+let zoomLevel=1;
+function zoomIn(){ 
+    zoomLevel+=0.1; 
+    document.body.style.transform='scale('+zoomLevel+')'; 
+    document.body.style.transformOrigin='top right'; 
+}
+function zoomOut(){ 
+    if(zoomLevel > 0.5) {
+        zoomLevel-=0.1; 
+        document.body.style.transform='scale('+zoomLevel+')'; 
+        document.body.style.transformOrigin='top right'; 
+    }
+}
+
+/* القائمة الجانبية */
+const toggle=document.querySelector('.nav-toggle');
+const nav=document.querySelector('#site-nav');
+if(toggle && nav){
+toggle.addEventListener('click',()=>{ const o=nav.classList.toggle('open'); toggle.setAttribute('aria-expanded',String(o)); });
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(nav.classList.contains('open')){nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false');} }));
+}
+</script>
+
+</body>
+</html>

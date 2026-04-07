@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="تواصل مع لوفينغ هومز للحجز أو الاستفسار أو ترتيب حزمة مخصصة. اذكر المدة ونشاط الكلب والحساسية والأدوية والتوصيل." />
+  <title>لوفينغ هومز | تواصل معنا</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* أزرار التحكم الثابتة */
+    #themeBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 99999;
+      cursor: pointer;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    #langBtn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 99999;
+      cursor: pointer;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* التكبير والتصغير الموحد */
+    #zoomControls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #zoomControls button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* تأثيرات الوضع الليلي */
+    .dark-mode { background-color: #1a1a1a !important; color: #e0e0e0 !important; }
+    .dark-mode header, .dark-mode footer, .dark-mode .card, .dark-mode .panel, 
+    .dark-mode input, .dark-mode select, .dark-mode textarea { 
+      background-color: #2d2d2d !important; 
+      color: #ffffff !important; 
+      border-color: #444 !important;
+    }
+    .dark-mode .muted { color: #b0b0b0 !important; }
+    .dark-mode #themeBtn, .dark-mode #langBtn, .dark-mode #zoomControls button {
+      background: #444; border-color: #666; color: #fff;
+    }
+
+    /* تحسينات للفورم */
+    .err { color: #ff4d4d; font-size: 0.85rem; margin-top: 5px; }
+    .success { background: #28a745; color: #fff; padding: 10px; border-radius: 5px; margin-top: 15px; text-align: center; }
+  </style>
+</head>
+
+<body>
+  <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  <button id="langBtn" onclick="toggleLang()">EN</button>
+
+  <div id="zoomControls">
+    <button onclick="zoomIn()" aria-label="تكبير">+</button>
+    <button onclick="zoomOut()" aria-label="تصغير">-</button>
+  </div>
+
+  <a class="skip-link lang-ar" href="#content">تخطي إلى المحتوى</a>
+  <a class="skip-link lang-en" href="#content" style="display:none">Skip to content</a>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="logo">🐾</span>
+        <span>
+          <strong class="lang-ar">لوفينغ هومز</strong>
+          <strong class="lang-en" style="display:none">Loving Homes</strong>
+          <span class="tagline lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</span>
+          <span class="tagline lang-en" style="display:none">Dog Hotel • Hong Kong</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only lang-ar">فتح أو إغلاق القائمة</span>
+        <span class="sr-only lang-en" style="display:none">Toggle Menu</span> ☰
+      </button>
+
+      <nav id="site-nav">
+        <a class="nav-link lang-ar" href="index.html">الرئيسية</a>
+        <a class="nav-link lang-ar" href="aboutus.html">من نحن</a>
+        <a class="nav-link lang-ar" href="services.html">المرافق</a>
+        <a class="nav-link lang-ar" href="packages.html">الحزم</a>
+        <a class="nav-link active lang-ar" href="contact.html">تواصل معنا</a>
+        <a class="nav-link lang-ar" href="help.html">المساعدة</a>
+
+        <a class="nav-link lang-en" href="index.html" style="display:none">Home</a>
+        <a class="nav-link lang-en" href="aboutus.html" style="display:none">About Us</a>
+        <a class="nav-link lang-en" href="services.html" style="display:none">Facilities</a>
+        <a class="nav-link lang-en" href="packages.html" style="display:none">Packages</a>
+        <a class="nav-link active lang-en" href="contact.html" style="display:none">Contact Us</a>
+        <a class="nav-link lang-en" href="help.html" style="display:none">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="panel page-hero">
+      <h1 class="lang-ar">تواصل معنا</h1>
+      <h1 class="lang-en" style="display:none">Contact Us</h1>
+      <p class="muted lang-ar" style="margin:0">اكتب تفاصيل بسيطة… وسنرد عليك بخيارات واضحة تناسب كلبك.</p>
+      <p class="muted lang-en" style="display:none; margin:0">Write simple details… and we will respond with clear options for your dog.</p>
+    </section>
+
+    <section class="section">
+      <div class="grid contact-grid">
+        <div class="card">
+          <h2 class="lang-ar" style="margin:0 0 10px; font-size:1.25rem">معلومات التواصل</h2>
+          <h2 class="lang-en" style="display:none; margin:0 0 10px; font-size:1.25rem">Contact Info</h2>
+          <ul class="list">
+            <li><strong class="lang-ar">الهاتف:</strong><strong class="lang-en" style="display:none">Phone:</strong> +852 XXXX XXXX</li>
+            <li><strong class="lang-ar">البريد:</strong><strong class="lang-en" style="display:none">Email:</strong> info@lovinghomes.hk</li>
+            <li><strong class="lang-ar">ساعات العمل:</strong><strong class="lang-en" style="display:none">Working Hours:</strong> Daily 8:00 - 20:00</li>
+          </ul>
+          <p class="muted small lang-ar" style="margin:10px 0 0">ملاحظة: لو في حساسية أو أدوية، اذكر اسم الدواء ووقت الجرعات بشكل واضح.</p>
+          <p class="muted small lang-en" style="display:none; margin:10px 0 0">Note: If there are allergies or medications, mention the name and dosage times clearly.</p>
+        </div>
+
+        <form class="card" id="contactForm" novalidate>
+          <h2 class="lang-ar" style="margin:0 0 10px; font-size:1.25rem">نموذج طلب/حجز</h2>
+          <h2 class="lang-en" style="display:none; margin:0 0 10px; font-size:1.25rem">Booking Form</h2>
+
+          <div class="row">
+            <label class="lang-ar">الاسم الكامل *</label><label class="lang-en" style="display:none">Full Name *</label>
+            <input id="name" name="name" type="text" required>
+            <p class="err lang-ar" id="nameErr" hidden>يرجى كتابة الاسم</p>
+            <p class="err lang-en" id="nameErrEn" hidden>Please enter your name</p>
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">البريد الإلكتروني *</label><label class="lang-en" style="display:none">Email *</label>
+            <input id="email" name="email" type="email" required>
+            <p class="err lang-ar" id="emailErr" hidden>يرجى إدخال بريد صحيح</p>
+            <p class="err lang-en" id="emailErrEn" hidden>Please enter a valid email</p>
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">رقم الهاتف</label><label class="lang-en" style="display:none">Phone Number</label>
+            <input id="phone" name="phone" type="tel">
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">ما الذي تريده؟</label><label class="lang-en" style="display:none">Your Choice</label>
+            <select id="package" name="package">
+              <option value="" class="lang-ar">اختر</option><option value="" class="lang-en" style="display:none">Select</option>
+              <option class="lang-ar">المميزة</option><option class="lang-en" style="display:none">Premium</option>
+              <option class="lang-ar">الكلاسيكية</option><option class="lang-en" style="display:none">Classic</option>
+              <option class="lang-ar">اليوم</option><option class="lang-en" style="display:none">Day Care</option>
+              <option class="lang-ar">مخصصة</option><option class="lang-en" style="display:none">Custom</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">المدة المطلوبة</label><label class="lang-en" style="display:none">Stay Duration</label>
+            <input id="stay" name="stay" type="text">
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">العمر + مستوى النشاط</label><label class="lang-en" style="display:none">Age + Activity Level</label>
+            <input id="age" name="age" type="text">
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">حساسية / أدوية / نظام غذائي</label><label class="lang-en" style="display:none">Allergy / Meds / Diet</label>
+            <textarea id="health" name="health" rows="3"></textarea>
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">هل تحتاج توصيل؟</label><label class="lang-en" style="display:none">Need Pick-up?</label>
+            <select id="delivery" name="delivery">
+              <option value="" class="lang-ar">اختر</option><option value="" class="lang-en" style="display:none">Select</option>
+              <option class="lang-ar">نعم</option><option class="lang-en" style="display:none">Yes</option>
+              <option class="lang-ar">لا</option><option class="lang-en" style="display:none">No</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label class="lang-ar">تفاصيل الطلب *</label><label class="lang-en" style="display:none">Request Details *</label>
+            <textarea id="msg" name="msg" rows="5" required></textarea>
+            <p class="err lang-ar" id="msgErr" hidden>يرجى كتابة تفاصيل كافية</p>
+            <p class="err lang-en" id="msgErrEn" hidden>Please provide more details</p>
+          </div>
+
+          <div class="row" style="display:flex; gap:10px; align-items:flex-start">
+            <input id="consent" name="consent" type="checkbox" required style="width:auto; margin-top:4px">
+            <label for="consent" style="margin:0" class="lang-ar">أوافق على استخدام بياناتي للرد على طلبي *</label>
+            <label for="consent" style="margin:0; display:none" class="lang-en">I agree to the use of my data *</label>
+          </div>
+
+          <button class="btn primary lang-ar" type="submit">إرسال الطلب</button>
+          <button class="btn primary lang-en" type="submit" style="display:none">Send Request</button>
+
+          <div class="success" id="successBox" hidden>
+            <span class="lang-ar">وصلنا طلبك، سنعاود التواصل معك قريبًا.</span>
+            <span class="lang-en" style="display:none">Request received! We will contact you soon.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="col">
+        <strong class="lang-ar">لوفينغ هومز</strong>
+        <strong class="lang-en" style="display:none">Loving Homes</strong>
+        <div class="muted small lang-ar">ضيافة كلاب بمعايير فندقية • هونغ كونغ</div>
+        <div class="muted small lang-en" style="display:none">Hotel-standard care • Hong Kong</div>
+      </div>
+      <div class="col">
+        <div class="muted small lang-ar">كلما كانت التفاصيل أوضح… كان ردنا أدق.</div>
+        <div class="muted small lang-en" style="display:none">Clearer details mean a more accurate response.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* التكبير والتصغير الموحد */
+    let currentZoom = 1;
+    function zoomIn(){
+      currentZoom += 0.1;
+      document.body.style.zoom = currentZoom;
+    }
+    function zoomOut(){
+      if(currentZoom > 0.6) {
+        currentZoom -= 0.1;
+        document.body.style.zoom = currentZoom;
+      }
+    }
+
+    function toggleTheme() {
+      const dark = document.body.classList.toggle('dark-mode');
+      document.getElementById('themeBtn').innerHTML = dark ? '☀️' : '🌙';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+    if(localStorage.getItem('theme')==='dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('themeBtn').innerHTML='☀️';
+    }
+
+    function toggleLang() {
+      const ar = document.querySelectorAll('.lang-ar');
+      const en = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+      const isAr = ar[0].style.display !== 'none';
+
+      ar.forEach(e => e.style.display = isAr ? 'none' : 'block');
+      en.forEach(e => e.style.display = isAr ? 'block' : 'none');
+      document.documentElement.lang = isAr ? 'en' : 'ar';
+      document.documentElement.dir = isAr ? 'ltr' : 'rtl';
+      btn.innerHTML = isAr ? 'AR' : 'EN';
+    }
+
+    /* القائمة */
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('#site-nav');
+    if(toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const o = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(o));
+      });
+    }
+
+    /* الفورم */
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const isAr = document.documentElement.lang === 'ar';
+      const nameOk = document.getElementById('name').value.trim().length > 1;
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value.trim());
+      const msgOk = document.getElementById('msg').value.trim().length > 5;
+      const consentOk = document.getElementById('consent').checked;
+
+      // إظهار وإخفاء الأخطاء بناءً على اللغة المفعلة
+      document.getElementById('nameErr').hidden = !isAr || nameOk;
+      document.getElementById('nameErrEn').hidden = isAr || nameOk;
+      document.getElementById('emailErr').hidden = !isAr || emailOk;
+      document.getElementById('emailErrEn').hidden = isAr || emailOk;
+      document.getElementById('msgErr').hidden = !isAr || msgOk;
+      document.getElementById('msgErrEn').hidden = isAr || msgOk;
+
+      if(nameOk && emailOk && msgOk && consentOk) {
+        document.getElementById('successBox').hidden = false;
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
